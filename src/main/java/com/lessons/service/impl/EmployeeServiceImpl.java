@@ -2,12 +2,10 @@ package com.lessons.service.impl;
 
 import com.lessons.dao.DepartmentDao;
 import com.lessons.dao.EmployeeDao;
-import com.lessons.dto.DepartmentDto;
 import com.lessons.dto.EmployeeDto;
 import com.lessons.entity.Employee;
 import com.lessons.service.EmployeeService;
 import com.lessons.service.mapper.EmployeeMapper;
-import com.sun.prism.es2.ES2Graphics;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
