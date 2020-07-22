@@ -3,10 +3,15 @@ package com.lessons.service.mapper;
 import com.lessons.dto.DepartmentDto;
 import com.lessons.entity.Department;
 import com.lessons.entity.Employee;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
 
+@Component
+@RequiredArgsConstructor
 public class DepartmentMapper implements Mapper<Department, DepartmentDto> {
+
     @Override
     public Department toEntity(DepartmentDto departmentDto) {
         return Department.builder()

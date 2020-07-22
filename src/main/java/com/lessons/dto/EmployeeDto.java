@@ -1,18 +1,18 @@
 package com.lessons.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.math.BigDecimal;
 
 @Setter
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
+@Builder
 public class EmployeeDto {
 
     private Integer id;
     private String name;
     private Integer departmentId;
+    private BigDecimal salary;
 
 }

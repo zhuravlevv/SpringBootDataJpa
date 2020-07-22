@@ -1,9 +1,6 @@
 package com.lessons.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -11,15 +8,10 @@ import java.util.Set;
 @Entity
 @Setter
 @Getter
-@AllArgsConstructor
-@NoArgsConstructor
+@RequiredArgsConstructor
 @Table(name = "department")
+@Builder
 public class Department {
-
-    public Department(String name, Set<Employee> employees) {
-        this.name = name;
-        this.employees = employees;
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
