@@ -8,7 +8,8 @@ import java.util.Set;
 @Entity
 @Setter
 @Getter
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "department")
 @Builder
 public class Department {
@@ -19,6 +20,6 @@ public class Department {
 
     private String name;
 
-    @OneToMany
+    @OneToMany(mappedBy = "department", cascade = CascadeType.ALL)
     private Set<Employee> employees;
 }

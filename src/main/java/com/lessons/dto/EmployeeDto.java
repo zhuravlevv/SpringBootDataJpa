@@ -6,7 +6,8 @@ import java.math.BigDecimal;
 
 @Setter
 @Getter
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Builder
 public class EmployeeDto {
 

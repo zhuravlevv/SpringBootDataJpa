@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 @Component
 @RequiredArgsConstructor
@@ -21,15 +22,23 @@ public class DepartmentMapper implements Mapper<Department, DepartmentDto> {
 
     @Override
     public DepartmentDto fromEntity(Department department) {
-        return DepartmentDto.builder()
+        DepartmentDto departmentDto = DepartmentDto.builder()
                 .id(department.getId())
                 .name(department.getName())
-                .averageSalary(department
+                .build();
+        if(department.getEmployees() != null) {
+            if (department.getEmployees().size() != 0) {
+                int size = department.getEmployees().size();
+                System.out.println("Size = " + size);
+                departmentDto.setAverageSalary(department
                         .getEmployees()
                         .stream()
                         .map(Employee::getSalary)
                         .reduce(BigDecimal::add)
-                        .orElseGet(()->new BigDecimal("0")))
-                .build();
+                        .orElseGet(() -> new BigDecimal("0"))
+                .divide(new BigDecimal(size), 10, RoundingMode.CEILING));
+            }
+        }
+        return departmentDto;
     }
 }

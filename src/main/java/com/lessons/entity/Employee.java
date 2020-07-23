@@ -1,7 +1,6 @@
 package com.lessons.entity;
 
 import lombok.*;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnJava;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -9,7 +8,8 @@ import java.math.BigDecimal;
 @Entity
 @Getter
 @Setter
-@RequiredArgsConstructor
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "employee")
 @Builder
 public class Employee {
