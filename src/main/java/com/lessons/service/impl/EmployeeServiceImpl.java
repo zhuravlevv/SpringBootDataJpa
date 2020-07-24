@@ -40,7 +40,7 @@ public class EmployeeServiceImpl implements EmployeeService {
                     .orElseThrow(Exception::new));
         }
         catch (Exception e){
-            e.printStackTrace();
+            System.out.println("Employee with id = " + id + " doesn't exist.");
         }
         return null;
     }
@@ -67,7 +67,7 @@ public class EmployeeServiceImpl implements EmployeeService {
             return employeeMapper.fromEntity(employee);
         }
         catch (Exception e){
-            e.printStackTrace();
+            System.out.println("Employee with id = " + id + " doesn't exist.");
         }
         return null;
     }

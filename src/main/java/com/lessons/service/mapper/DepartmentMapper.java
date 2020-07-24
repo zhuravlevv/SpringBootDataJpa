@@ -29,14 +29,13 @@ public class DepartmentMapper implements Mapper<Department, DepartmentDto> {
         if(department.getEmployees() != null) {
             if (department.getEmployees().size() != 0) {
                 int size = department.getEmployees().size();
-                System.out.println("Size = " + size);
                 departmentDto.setAverageSalary(department
                         .getEmployees()
                         .stream()
                         .map(Employee::getSalary)
                         .reduce(BigDecimal::add)
                         .orElseGet(() -> new BigDecimal("0"))
-                .divide(new BigDecimal(size), 10, RoundingMode.CEILING));
+                .divide(new BigDecimal(size), 5, RoundingMode.CEILING));
             }
         }
         return departmentDto;

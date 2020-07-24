@@ -36,7 +36,7 @@ public class DepartmentServiceImpl implements DepartmentService {
                     .orElseThrow(Exception::new));
         }
         catch (Exception e){
-            e.printStackTrace();
+            System.out.println("Department with id = " + id + " doesn't exist.");
         }
         return null;
     }
@@ -55,7 +55,7 @@ public class DepartmentServiceImpl implements DepartmentService {
             return departmentMapper.fromEntity(department);
         }
         catch (Exception e){
-            e.printStackTrace();
+            System.out.println("Department with id = " + id + " doesn't exist.");
         }
         return null;
     }
