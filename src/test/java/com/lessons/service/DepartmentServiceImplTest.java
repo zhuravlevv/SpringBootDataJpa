@@ -1,12 +1,8 @@
 package com.lessons.service;
 
-import com.lessons.dao.EmployeeDao;
 import com.lessons.dto.DepartmentDto;
 import com.lessons.dto.EmployeeDto;
-import com.lessons.entity.Department;
-import com.lessons.entity.Employee;
 import com.lessons.service.impl.DepartmentServiceImpl;
-import com.lessons.service.mapper.DepartmentMapper;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
