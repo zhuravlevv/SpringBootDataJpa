@@ -27,11 +27,14 @@ public class EmployeeMapper implements Mapper<Employee, EmployeeDto> {
 
     @Override
     public EmployeeDto fromEntity(Employee employee) {
-        return EmployeeDto.builder()
+        EmployeeDto employeeDto = EmployeeDto.builder()
                 .id(employee.getId())
                 .name(employee.getName())
-                .departmentId(employee.getDepartment().getId())
                 .salary(employee.getSalary())
                 .build();
+        if(employee.getDepartment() != null){
+            employeeDto.setDepartmentId(employee.getDepartment().getId());
+        }
+        return employeeDto;
     }
 }

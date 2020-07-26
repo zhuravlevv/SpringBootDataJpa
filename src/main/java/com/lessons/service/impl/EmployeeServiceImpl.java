@@ -3,6 +3,7 @@ package com.lessons.service.impl;
 import com.lessons.dao.DepartmentDao;
 import com.lessons.dao.EmployeeDao;
 import com.lessons.dto.EmployeeDto;
+import com.lessons.entity.Department;
 import com.lessons.entity.Employee;
 import com.lessons.service.EmployeeService;
 import com.lessons.service.mapper.EmployeeMapper;
@@ -10,6 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -75,5 +77,16 @@ public class EmployeeServiceImpl implements EmployeeService {
     @Override
     public void delete(Integer id) {
         employeeDao.deleteById(id);
+    }
+
+    @Override
+    @Transactional
+    public void deleteByDepartmentId(Integer departmentId) {
+        try {
+            Department department = departmentDao.findById(departmentId).orElseThrow(Exception::new);
+            employeeDao.deleteAllByDepartment(department);
+        } catch (Exception e){
+            System.out.println("Department with id = " + departmentId + " doesn't exist.");
+        }
     }
 }

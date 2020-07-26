@@ -15,4 +15,6 @@ public interface EmployeeService {
     public EmployeeDto update(EmployeeDto newEmployee, Integer id);
 
     public void delete(Integer id);
+
+    public void deleteByDepartmentId(Integer departmentId);
 }

@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.persistence.criteria.CriteriaBuilder;
 import java.net.URI;
 import java.util.List;
 
@@ -55,6 +56,12 @@ public class EmployeeController {
     @DeleteMapping("employee/{id}")
     public ResponseEntity<EmployeeDto> delete(@PathVariable Integer id){
         employeeService.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @DeleteMapping("employee/delete/{departmentId}")
+    public ResponseEntity<EmployeeDto> deleteByDepartmentId(@PathVariable Integer departmentId){
+        employeeService.deleteByDepartmentId(departmentId);
         return ResponseEntity.noContent().build();
     }
 }
